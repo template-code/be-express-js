@@ -5,10 +5,13 @@
   "engines": {
     "npm": "please-use-yarn",
     "yarn": ">= 1.22.*",
-    "node": ">= 16.14.*"
+    "node": ">= 16"
   },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,5 +20,16 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-xo": "^0.40.0",
+    "eslint-plugin-align-assignments": "^1.1.2",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "husky": "^7.0.0",
+    "lint-staged": ">=10"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
